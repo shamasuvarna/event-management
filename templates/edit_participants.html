@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Participant</title>
+    <style>
+        body { font-family: Arial; background: #f3e8ff; }
+        form { width: 40%; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+        input { width: 100%; padding: 8px; margin-top: 10px; }
+        button { padding: 10px 20px; background: purple; color: white; border: none; border-radius: 5px; margin-top: 15px; }
+        a { padding: 8px 15px; background: gray; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<a href="/participants" style="margin:20px; display:inline-block;">Back</a>
+
+<h2 style="text-align:center;">Edit Participant</h2>
+
+<form method="POST">
+    <label>Name</label>
+    <input type="text" name="name" value="{{ participant.name }}" required>
+
+    <label>Email</label>
+    <input type="email" name="email" value="{{ participant.email }}">
+
+    <label>Phone</label>
+    <input type="text" name="phone" value="{{ participant.phone }}">
+
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>
