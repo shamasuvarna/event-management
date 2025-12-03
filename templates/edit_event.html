@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Event</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f4edff; }
+    .btn-purple { background:#6a0dad; color:white; }
+    .btn-purple:hover { background:#540a9e; color:white; }
+  </style>
+</head>
+<body class="p-4">
+  <div class="container">
+    <div class="card shadow p-4">
+      <h3 class="mb-4" style="color:#6a0dad;">Edit Event</h3>
+      <form action="{{ url_for('edit_event', id=event.event_id) }}" method="POST">
+        <div class="mb-3">
+          <label>Name:</label>
+          <input class="form-control" type="text" name="event_name" value="{{ event.event_name }}" required>
+        </div>
+        <div class="mb-3">
+          <label>Date:</label>
+          <input class="form-control" type="date" name="event_date" value="{{ event.event_date }}" required>
+        </div>
+        <div class="mb-3">
+          <label>Venue:</label>
+          <input class="form-control" type="text" name="venue" value="{{ event.venue }}">
+        </div>
+        <div class="mb-3">
+          <label>Organizer:</label>
+          <select class="form-select" name="organizer_id">
+            {% for o in organizers %}
+              <option value="{{ o.organizer_id }}"
+                {% if o.organizer_id == event.organizer_id %}selected{% endif %}>
+                {{ o.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label>Description:</label>
+          <textarea class="form-control" name="description">{{ event.description }}</textarea>
+        </div>
+        <button class="btn btn-purple">Update</button>
+        <a href="{{ url_for('events') }}" class="btn btn-secondary ms-2">Back</a>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
