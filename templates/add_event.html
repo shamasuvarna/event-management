@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Event</title>
+    <style>
+        body { font-family: Arial; background:#eef2f3; text-align:center; }
+        h1 { color:#4a4a4a; margin-top:30px; }
+        form { width:60%; margin:auto; background:white; padding:25px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); text-align:left;}
+        input, select, textarea { width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:5px; }
+        button { padding:10px 20px; background:#4a90e2; color:white; border:none; border-radius:5px; cursor:pointer; }
+        button:hover { background:#357ac9; }
+        a { display:inline-block; margin-top:10px; text-decoration:none; color:#4a90e2;}
+    </style>
+</head>
+<body>
+    <h1>Add Event</h1>
+    <form method="POST">
+        Event Name:<br><input type="text" name="event_name"><br>
+        Date:<br><input type="date" name="event_date"><br>
+        Venue:<br><input type="text" name="venue"><br>
+        Organizer:<br>
+        <select name="organizer_id">
+            {% for o in organizers %}
+            <option value="{{ o.organizer_id }}">{{ o.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        Description:<br><textarea name="description"></textarea><br>
+        <button type="submit">Add Event</button>
+    </form>
+    <a href="/events">Back</a>
+</body>
+</html>

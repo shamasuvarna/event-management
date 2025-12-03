@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Participants</title>
+    <style>
+        body { font-family: Arial; background: #eef2f3; text-align: center;}
+        h1 { color:#4a4a4a; margin-top:30px; }
+        table { margin:auto; border-collapse: collapse; width: 80%; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+        th { background:#4a90e2; color:white; padding:10px;}
+        td { padding:10px; border:1px solid #dcdcdc;}
+        a { display:inline-block; margin:10px; padding:10px 20px; background:#4a90e2; color:white; text-decoration:none; border-radius:8px;}
+        a:hover { background:#357ac9; }
+    </style>
+</head>
+<body>
+    <h1>Participants List</h1>
+    <a href="/add_participant">Add Participant</a><br><br>
+    <table>
+        <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th></tr>
+        {% for p in participants %}
+        <tr>
+            <td>{{ p.participant_id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.email }}</td>
+            <td>{{ p.phone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="/">Back</a>
+</body>
+</html>

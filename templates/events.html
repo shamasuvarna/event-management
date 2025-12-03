@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <style>
+        body { font-family: Arial; background: #eef2f3; text-align: center; }
+        h1 { color: #4a4a4a; margin-top: 30px; }
+        table { margin: auto; border-collapse: collapse; width: 90%; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+        th { background:#4a90e2; color:white; padding:10px;}
+        td { padding:10px; border:1px solid #dcdcdc;}
+        a { display:inline-block; margin:10px; padding:10px 20px; background:#4a90e2; color:white; text-decoration:none; border-radius:8px;}
+        a:hover { background:#357ac9; }
+    </style>
+</head>
+<body>
+    <h1>Events List</h1>
+    <a href="/add_event">Add Event</a><br><br>
+    <table>
+        <tr>
+            <th>ID</th><th>Event Name</th><th>Date</th><th>Venue</th><th>Organizer</th><th>Description</th>
+        </tr>
+        {% for e in events %}
+        <tr>
+            <td>{{ e.event_id }}</td>
+            <td>{{ e.event_name }}</td>
+            <td>{{ e.event_date }}</td>
+            <td>{{ e.venue }}</td>
+            <td>{{ e.organizer_name }}</td>
+            <td>{{ e.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="/">Back</a>
+</body>
+</html>
